@@ -50,6 +50,20 @@ function multi() {
     }
 }
 
+function borrar() {
+    numeros = numeros.substring(0,numeros.length-1)
+    if(pantalla) {
+        pantalla.value = numeros
+    }
+}
+
+function borrar_todo() {
+    numeros = ""
+    if(pantalla) {
+        pantalla.value = numeros
+    }
+}
+
 function igual() {
     // Verificamos que encuentre el elemento
     if(pantalla) {
