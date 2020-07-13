@@ -18,13 +18,15 @@ h1 {
     text-shadow: 2px 2px 3px black;
 }
 
-nav p {
+nav p,nav a {
     display: inline-block;
     font: bold 20px "MiPropiaFuente";
     /* Separo un poco las letras entre si*/
     letter-spacing: 0.1em;  
     text-align: center;
     width: 320px;
+    color: black;
+    text-decoration-line: none;
     
 }
 
