@@ -1,3 +1,4 @@
+// Declaro variables
 var numeros = ""
 var numero1 = "", numero2 = "" , operacion = ""
 var pantalla = document.getElementById("pantalla")
