@@ -13,11 +13,25 @@
         <h1>CALCULADORA MAESTRA</h1>
     </header>
     <hr>
-    <nav>
-        <a href="#">Inicio</a>
-        <p>Todas las calculadora</p>
-        <p>Quienes somos</p>
-        <p>Donaciones</p>
+    <nav class="menu" id="menu">
+        <ul class="lista_menu" id="lista_menu">
+            
+            <li class="lista_menu_princi">
+                <a href="#" class="inicio" id="inicio">Inicio</a>
+            </li>
+
+            <li class="lista_menu_princi" onmouseover="ver_menu()" onmouseout="no_ver_menu()">
+                <a href="#" class="inicio" id="inicio">Todas las calculadora</a>
+            </li>
+
+            <li class="lista_menu_princi">
+                <a href="#" class="info" id="info">Quienes somos</a>
+            </li>
+            
+            <li class="lista_menu_princi">
+                <a href="#" class="donaciones" id="donaciones">Donaciones</a>
+            </li>
+        </ul>
     </nav>
     <hr>
     <table> 
