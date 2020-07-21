@@ -3,6 +3,135 @@ var numero1 = [] , operacion = []
 var signo = false , resultados = false
 var resultado_operaciones = 0
 var pantalla = document.getElementById("pantalla")
+
+// Al finalizar la carga de la pagina llamamos a una función
+window.addEventListener("load", comenzar, false)
+
+// La función es llamada al cargar la pagina
+function comenzar() {
+    // Identificamos cuando el usuario preciona una tecla y llamamos a una función
+    document.addEventListener("keydown", tecla, false)
+}
+
+// Función llamada cuando se ingresan valores por teclado
+function tecla(e) {
+
+    // Verifico que tecla se preciono y le asigno los valores correspondientes
+    if (e.key == "1") {
+        numeros = numeros + "1"
+        pantalla.value = numeros
+
+        // Se coloca falso ya que el usuario no desea realizar una operación con el resultado anterior
+        resultados = false
+    }
+    
+    else if (e.key == "2") {
+        numeros = numeros + "2"
+        pantalla.value = numeros
+        
+        // Se coloca falso ya que el usuario no desea realizar una operación con el resultado anterior
+        resultados = false
+    }
+
+    else if (e.key == "3") {
+        numeros = numeros + "3"
+        pantalla.value = numeros
+        
+        // Se coloca falso ya que el usuario no desea realizar una operación con el resultado anterior
+        resultados = false
+    }
+
+    else if (e.key == "4") {
+        numeros = numeros + "4"
+        pantalla.value = numeros
+        
+        // Se coloca falso ya que el usuario no desea realizar una operación con el resultado anterior
+        resultados = false
+    }
+
+    else if (e.key == "5") {
+        numeros = numeros + "5"
+        pantalla.value = numeros
+        
+        // Se coloca falso ya que el usuario no desea realizar una operación con el resultado anterior
+        resultados = false
+    }
+
+    else if (e.key == "6") {
+        numeros = numeros + "6"
+        pantalla.value = numeros
+        
+        // Se coloca falso ya que el usuario no desea realizar una operación con el resultado anterior
+        resultados = false
+    }
+
+    else if (e.key == "7") {
+        numeros = numeros + "7"
+        pantalla.value = numeros
+        
+        // Se coloca falso ya que el usuario no desea realizar una operación con el resultado anterior
+        resultados = false
+    }
+
+    else if (e.key == "8") {
+        numeros = numeros + "8"
+        pantalla.value = numeros
+        
+        // Se coloca falso ya que el usuario no desea realizar una operación con el resultado anterior
+        resultados = false
+    }
+
+    else if (e.key == "9") {
+        numeros = numeros + "9"
+        pantalla.value = numeros
+        
+        // Se coloca falso ya que el usuario no desea realizar una operación con el resultado anterior
+        resultados = false
+    }
+
+    else if (e.key == "0") {
+        numeros = numeros + "0"
+        pantalla.value = numeros
+        
+        // Se coloca falso ya que el usuario no desea realizar una operación con el resultado anterior
+        resultados = false
+    }
+    
+    else if (e.key == ".") {
+        numeros = numeros + "."
+        pantalla.value = numeros
+        
+        // Se coloca falso ya que el usuario no desea realizar una operación con el resultado anterior
+        resultados = false
+    }
+    
+    else if (e.key == "/") {
+        divi()
+    }
+    
+    else if (e.key == "*") {
+        multi()
+    }
+    
+    else if (e.key == "-") {
+        resta()
+    }
+    
+    else if (e.key == "+") {
+        suma()
+    }
+
+    // Si se preciona la tecla de enter...
+    else if (e.key == "Enter") {
+        igual()
+    }
+    
+    // Si se preciona la tecla de borrar...
+    else if (e.key == "Backspace") {
+        borrar()
+    }
+}
+
 function escribir_numeros(numero){
     numeros = numeros + numero
 
@@ -310,15 +439,25 @@ function igual() {
                 else {
                     resultado_operaciones = resultado_operaciones  / numero1[i + 1]
                 }
-
-
                
             }
-                    
 
         }
+        // Verifico si la operación matematica se realizo correctamente
+        if(resultado_operaciones == Infinity){
+            alert("No se puede divirir entre 0")
+            pantalla.value = ""
+        }
 
-        pantalla.value = numeros + " = " + (resultado_operaciones)
+        else if(isNaN(resultado_operaciones)) {
+            alert("Error al ingresar las operaciones")
+            pantalla.value = ""
+        }
+
+        else {
+            pantalla.value = numeros + " = " + (resultado_operaciones)
+            console.log(resultado_operaciones)
+        }
 
         numeros = ""  // Acero la variable que guarda lo escrito en pantalla
         numero1 = [], operacion = []
