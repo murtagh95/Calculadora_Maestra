@@ -70,3 +70,15 @@ td, th{
 td:active,th:active{
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5) inset;
 }
+
+.operaciones {
+    background-color: rgb(128, 250, 0);
+}
+
+.numeros {
+    border-color: red;
+}
+
+.igual {
+    background-color: rgb(139, 190, 232);
+}
