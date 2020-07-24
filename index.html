@@ -1,87 +1,192 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Asignamos el icono de la pagina-->
-    <link rel="shortcut icon" href="cal.ico">
-    <link rel="stylesheet" href="estilo.css">
-    <title>Calculadora Maestra</title>
-</head>
-<body>
-    <header>
-        <h1>CALCULADORA MAESTRA</h1>
-    </header>
-    <hr>
-    <nav class="menu" id="menu">
-        <ul class="lista_menu" id="lista_menu">
-            
-            <li class="lista_menu_princi">
-                <a href="#" class="inicio" id="inicio">Inicio</a>
-            </li>
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <!-- Con user-scalable=no  NO LE PERMITIMOS AL USUARIO CAMBIAR EL ZOOM -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0 ,	shrink-to-fit=no">
+        <!-- Asignamos el icono de la pagina-->
+        <link rel="shortcut icon" href="cal.ico">
+        <title>Calculadora Maestra</title>
 
-            <li class="lista_menu_princi"  >
-                <a href="#" class="inicio" id="inicio">Todas las calculadora</a>
-            </li>
-
-            <li class="lista_menu_princi">
-                <a href="#" class="info" id="info">Quienes somos</a>
-            </li>
-            
-            <li class="lista_menu_princi">
-                <a href="#" class="donaciones" id="donaciones">Donaciones</a>
-            </li>
-        </ul>
-    </nav>
-    <hr>
-    <!-- <div id="publicidad">
-        <script data-ad-client="ca-pub-2681264411576081" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    </div> -->
-    <table> 
-        <caption><input type="text" id="pantalla" name="display" size="23"></caption><!--Elemento para dar el nombre de la tabla-->
-        <thead>
-            <tr><!--Fila  1 y con th la definimos como cabezera-->
-                <th id="+" class="operaciones"  onclick="suma()">+</th>
-                <th id="-" class="operaciones"  onclick="resta()">-</th>
-                <th id="*" class="operaciones"  onclick="multi()">*</th>
-                <th id="/" class="operaciones"  onclick="divi()">/</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><!--Fila  2-->
-                <td id="7" class="numeros" onclick="escribir_numeros('7')">7</td>
-                <td id="8" class="numeros" onclick="escribir_numeros('8')">8</td>
-                <td id="9" class="numeros" onclick="escribir_numeros('9')">9</td>
-                <td id="borrar" onclick="borrar()">«</td>
-            </tr>
-            <tr><!--Fila  3 -->
-                <td id="4" class="numeros" onclick="escribir_numeros('4')">4</td>
-                <td id="5" class="numeros" onclick="escribir_numeros('5')">5</td>
-                <td id="6" class="numeros" onclick="escribir_numeros('6')">6</td>
-                <td id="C" onclick="borrar_todo()">C</td>
-            </tr>
-
-            <tr><!--Fila  4-->
-                <td id="1" class="numeros" onclick="escribir_numeros('1')">1</td>
-                <td id="2" class="numeros" onclick="escribir_numeros('2')">2</td>
-                <td id="3" class="numeros" onclick="escribir_numeros('3')">3</td>
-                <td></td>
-            </tr>
-
-            <tr><!--Fila  5-->
-                <td id="0" class="numeros" onclick="escribir_numeros('0')">0</td>
-                <td id="00" class="numeros" onclick="escribir_numeros('00')">00</td>
-                <td id="." class="numeros" onclick="escribir_numeros('.')">.</td>
-                <td id="+/-"  onclick="cambiar_signo()">+/-</td>
-            </tr>
-
-            <tr>
-                <td id="=" colspan="4" class="igual" onclick="igual()">=</td>
-            </tr>
-        </tbody>
-        </tfoot>
+        <!--	Bootstrap	CSS	-->
+        <link	rel="stylesheet"	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"	integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"	crossorigin="anonymous">
         
-    </table>
-    <script src="script.js"></script>
-</body>
-</html>
+        <!-- Cargamos el CSS propio -->
+        <link rel="stylesheet" href="estilo.css">
+    </head>
+    <body>
+        <!-- Configuración de la barra de navegacion con bootstrap -->
+
+        <nav class="navbar  fixed-top navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="icono.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+                Calculadora Maestra
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Quienes somos</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Donaciones</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Todas las calculadora</a>
+
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                            <a class="dropdown-item" href="#">Calculadora basica</a>
+                            <a class="dropdown-item" href="#">Calculadora cientifica</a>
+                            <!-- Realizamos una separación -->
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Convertidor de distacia</a>
+                            <a class="dropdown-item" href="#">Convertidor de temperatura</a>
+                            <a class="dropdown-item" href="#">Convertidor de peso</a>
+                        </div>
+                    </li>
+
+                </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+    </div>
+    </nav>
+
+        <!-- <div id="publicidad">
+            <script data-ad-client="ca-pub-2681264411576081" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        </div> -->
+
+        <!-- Divido la seccion principal en 1 fila con 3 columnas -->
+        <div class="container">
+            <!-- PRIMERA FILA -->
+            <div class="row">
+                
+                <!-- PRIMERA COLUMNA, para publicidad -->
+                <div class="col-md-3 col-12 bg-warning">
+                    <h2 class="text-center">Publicidad</h1>
+        
+        
+                </div>
+
+                <!-- SEGUNDA COLUMNA, para calculadora -->
+                <div class="col-md-6 col-12 overflow"> 
+                    <!-- Fila con el titulo -->
+                    <div class="row">
+                        <div class="col-12">
+                            <h1>Calculadora basica</h1>
+                        </div>
+                    </div>
+                
+                    <!-- Primera fila -->
+                    <div class="row">
+
+                        <div class="col-12">
+                            <form action="">
+                                <div class="form-group">
+                                    <label for="pantalla"></label>
+                                    <input type="text" class="form-control" id="pantalla" >
+                                </div>
+                            </form>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                    <!-- Segunda fila -->
+                    <div class="row">
+                        
+                        <div class="text-center col-3 border border-dark rounded-lg btn btn-secondary" role="button" id="+" class="operaciones"  onclick="suma()">+ </div>
+                        <div class="text-center col-3 border border-dark rounded-lg btn btn-secondary" role="button"  id="-" class="operaciones"  onclick="resta()">-</div>
+                        <div class="text-center col-3 border border-dark rounded-lg btn btn-secondary" role="button"  id="*" class="operaciones"  onclick="multi()">*</div>
+                        <div class="text-center col-3 border border-dark rounded-lg btn btn-secondary" role="button"  id="/" class="operaciones"  onclick="divi()">/</div>
+
+
+                    </div>
+                    
+                    
+                    <!-- Tercera fila -->
+                    <div class="row">
+                        
+                        <div class="text-center col-3 border border-dark rounded-lg btn btn-light" role="button"  id="7" class="numeros" onclick="escribir_numeros('7')">7</div>
+                        <div class="text-center col-3 border border-dark rounded-lg btn btn-light" role="button"  id="8" class="numeros" onclick="escribir_numeros('8')">8</div>
+                        <div class="text-center col-3 border border-dark rounded-lg btn btn-light" role="button"  id="9" class="numeros" onclick="escribir_numeros('9')">9</div>
+                        <div class="text-center col-3 border border-dark rounded-lg btn btn-secondary" role="button"  id="borrar" class="operaciones"  onclick="borrar()">«</div>
+
+                    </div>
+                    
+                    
+                    <!-- Cuarto fila -->
+                    <div class="row">
+                    
+                            
+                        <div class="text-center col-3 border border-dark rounded-lg btn btn-light" role="button"  id="4" class="numeros" onclick="escribir_numeros('4')">4</div>
+                        <div class="text-center col-3 border border-dark rounded-lg btn btn-light" role="button"  id="5" class="numeros" onclick="escribir_numeros('5')">5</div>
+                        <div class="text-center col-3 border border-dark rounded-lg btn btn-light" role="button"  id="6" class="numeros" onclick="escribir_numeros('6')">6</div>
+                        <div class="text-center col-3 border border-dark rounded-lg btn btn-secondary" role="button"  id="C" class="operaciones"  onclick="borrar_todo()">C</div>
+
+
+                    </div>
+                    
+                    
+                    <!-- Quinta fila -->
+                    <div class="row">
+                        
+                        <div class="text-center col-3 border border-dark rounded-lg btn btn-light" role="button"  id="1" class="numeros" onclick="escribir_numeros('1')">1</div>
+                        <div class="text-center col-3 border border-dark rounded-lg btn btn-light" role="button"  id="2" class="numeros" onclick="escribir_numeros('2')">2</div>
+                        <div class="text-center col-3 border border-dark rounded-lg btn btn-light" role="button"  id="3" class="numeros" onclick="escribir_numeros('3')">3</div>
+                        <div class="text-center col-3 border border-dark rounded-lg btn btn-secondary" role="button"  id="" class="operaciones"  onclick=""></div>
+
+                    </div>
+                    
+                    
+                    <!-- Sexta fila -->
+                    <div class="row">
+                        
+                        <div class="text-center col-3 border border-dark rounded-lg btn btn-light" role="button"  id="0" class="numeros" onclick="escribir_numeros('0')">0</div>
+                        <div class="text-center col-3 border border-dark rounded-lg btn btn-light" role="button"  id="00" class="numeros" onclick="escribir_numeros('00')">00</div>
+                        <div class="text-center col-3 border border-dark rounded-lg btn btn-light" role="button"  id="." class="numeros" onclick="escribir_numeros('.')">.</div>
+                        <div class="text-center col-3 border border-dark rounded-lg btn btn-secondary" role="button"  id="+/-"  class="operaciones"  onclick="cambiar_signo()">+/-</div>
+
+                    </div>
+                    
+                    <!-- Septima fila -->
+                    <div class="row">
+                        
+                        <div class="text-center col-12 border border-dark rounded-lg btn btn-primary" role="button"  id="=" colspan="4" class="igual" onclick="igual()">=</div>
+
+                    </div>
+                    
+
+
+                </div>
+
+                <!-- TERCERA COLUMNA, para historial -->
+                <div class="col-md-3 col-12 bg-warning">
+                    <h2 class="text-center">Historial</h2>   
+        
+                </div>
+        
+        
+            </div>
+            
+        
+        
+        
+        <!-- JS, Popper.js, and jQuery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+        <script src="script.js"></script>
+    </body>
+    </html>
