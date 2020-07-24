@@ -91,12 +91,13 @@
                     <div class="row">
 
                         <div class="col-12">
-                            <form action="">
+                            <div id="pantalla" class="overflow-auto"></div>
+                            <!-- <form action="">
                                 <div class="form-group">
                                     <label for="pantalla"></label>
                                     <input type="text" class="form-control" id="pantalla" >
                                 </div>
-                            </form>
+                            </form> -->
                             
                         </div>
                         
@@ -171,8 +172,9 @@
                 </div>
 
                 <!-- TERCERA COLUMNA, para historial -->
-                <div class="col-md-3 col-12 bg-warning">
+                <div class="historial col-md-3 col-12 bg-warning">
                     <h2 class="text-center">Historial</h2>   
+
         
                 </div>
         
@@ -188,5 +190,14 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
         <script src="script.js"></script>
+        <script>
+            $( document ).ready( function(){
+                setInterval(refrescar, 200);
+
+                function refrescar() {
+                    $("#pantalla").scrollLeft($('#pantalla').prop('scrollWidth'));
+                }
+            })
+        </script>
     </body>
     </html>

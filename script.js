@@ -1,3 +1,4 @@
+
 var numeros = ""
 var numero1 = [] , operacion = []
 var signo = false , resultados = false
@@ -11,6 +12,7 @@ window.addEventListener("load", comenzar, false)
 function comenzar() {
     // Identificamos cuando el usuario preciona una tecla y llamamos a una función
     document.addEventListener("keydown", tecla, false)
+    
 }
 
 // Función llamada cuando se ingresan valores por teclado
@@ -19,7 +21,7 @@ function tecla(e) {
     // Verifico que tecla se preciono y le asigno los valores correspondientes
     if (e.key == "1") {
         numeros = numeros + "1"
-        pantalla.value = numeros
+        pantalla.innerHTML = numeros
 
         // Se coloca falso ya que el usuario no desea realizar una operación con el resultado anterior
         resultados = false
@@ -27,7 +29,7 @@ function tecla(e) {
     
     else if (e.key == "2") {
         numeros = numeros + "2"
-        pantalla.value = numeros
+        pantalla.innerHTML = numeros
         
         // Se coloca falso ya que el usuario no desea realizar una operación con el resultado anterior
         resultados = false
@@ -35,7 +37,7 @@ function tecla(e) {
 
     else if (e.key == "3") {
         numeros = numeros + "3"
-        pantalla.value = numeros
+        pantalla.innerHTML = numeros
         
         // Se coloca falso ya que el usuario no desea realizar una operación con el resultado anterior
         resultados = false
@@ -43,7 +45,7 @@ function tecla(e) {
 
     else if (e.key == "4") {
         numeros = numeros + "4"
-        pantalla.value = numeros
+        pantalla.innerHTML = numeros
         
         // Se coloca falso ya que el usuario no desea realizar una operación con el resultado anterior
         resultados = false
@@ -51,7 +53,7 @@ function tecla(e) {
 
     else if (e.key == "5") {
         numeros = numeros + "5"
-        pantalla.value = numeros
+        pantalla.innerHTML = numeros
         
         // Se coloca falso ya que el usuario no desea realizar una operación con el resultado anterior
         resultados = false
@@ -59,7 +61,7 @@ function tecla(e) {
 
     else if (e.key == "6") {
         numeros = numeros + "6"
-        pantalla.value = numeros
+        pantalla.innerHTML = numeros
         
         // Se coloca falso ya que el usuario no desea realizar una operación con el resultado anterior
         resultados = false
@@ -67,7 +69,7 @@ function tecla(e) {
 
     else if (e.key == "7") {
         numeros = numeros + "7"
-        pantalla.value = numeros
+        pantalla.innerHTML = numeros
         
         // Se coloca falso ya que el usuario no desea realizar una operación con el resultado anterior
         resultados = false
@@ -75,7 +77,7 @@ function tecla(e) {
 
     else if (e.key == "8") {
         numeros = numeros + "8"
-        pantalla.value = numeros
+        pantalla.innerHTML = numeros
         
         // Se coloca falso ya que el usuario no desea realizar una operación con el resultado anterior
         resultados = false
@@ -83,7 +85,7 @@ function tecla(e) {
 
     else if (e.key == "9") {
         numeros = numeros + "9"
-        pantalla.value = numeros
+        pantalla.innerHTML = numeros
         
         // Se coloca falso ya que el usuario no desea realizar una operación con el resultado anterior
         resultados = false
@@ -91,7 +93,7 @@ function tecla(e) {
 
     else if (e.key == "0") {
         numeros = numeros + "0"
-        pantalla.value = numeros
+        pantalla.innerHTML = numeros
         
         // Se coloca falso ya que el usuario no desea realizar una operación con el resultado anterior
         resultados = false
@@ -99,7 +101,7 @@ function tecla(e) {
     
     else if (e.key == ".") {
         numeros = numeros + "."
-        pantalla.value = numeros
+        pantalla.innerHTML = numeros
         
         // Se coloca falso ya que el usuario no desea realizar una operación con el resultado anterior
         resultados = false
@@ -137,7 +139,7 @@ function escribir_numeros(numero){
 
     // Verificamos que encuentre el elemento
     if(pantalla) {
-        pantalla.value = numeros
+        pantalla.innerHTML = numeros
     }
     // Se coloca falso ya que el usuario no desea realizar una operación con el resultado anterior
     resultados = false
@@ -155,7 +157,7 @@ function cambiar_signo() {
             // Le quito el signo negativo al principio de la variable contenedora de la cadena
             numeros = numeros.substring(1)
             // Visualizo el cambio en la pantalla
-            pantalla.value = numeros
+            pantalla.innerHTML = numeros
             
         }
         else {
@@ -169,7 +171,7 @@ function cambiar_signo() {
             numeros = numeros.substring(0, acumuladora + operacion.length) +  numeros.substring(acumuladora + operacion.length + 1)
 
             // Visualizo el cambio en la pantalla
-            pantalla.value = numeros
+            pantalla.innerHTML = numeros
         }
         
     }
@@ -180,7 +182,7 @@ function cambiar_signo() {
             // Le agrego el signo negativo al principio de la variable contenedora de la cadena
             numeros = "-" + numeros
             // Visualizo el cambio en la pantalla
-            pantalla.value = numeros
+            pantalla.innerHTML = numeros
         }
         else {
             // Creo una variable para contar los números que llevamos ingresados
@@ -193,7 +195,7 @@ function cambiar_signo() {
             numeros = numeros.substring(0, acumuladora + operacion.length ) +  "-" + numeros.substring(acumuladora + operacion.length)
 
             // Visualizo el cambio en la pantalla
-            pantalla.value = numeros
+            pantalla.innerHTML = numeros
         }
     }
 }
@@ -234,7 +236,7 @@ function suma() {
         // Agrego la operación a la cariable que contiene lo escrito en pantalla
         numeros = numeros + "+"
         //Escribo en pantalla lo agregado
-        pantalla.value = numeros
+        pantalla.innerHTML = numeros
     }
 }
 
@@ -267,7 +269,7 @@ function resta() {
 
         operacion.push("-")
         numeros = numeros + "-"
-        pantalla.value = numeros
+        pantalla.innerHTML = numeros
     }
 }
 
@@ -301,7 +303,7 @@ function divi() {
 
         operacion.push("/")
         numeros = numeros + "/"
-        pantalla.value = numeros
+        pantalla.innerHTML = numeros
     }
 }
 
@@ -334,7 +336,7 @@ function multi() {
 
         operacion.push("*")
         numeros = numeros + "*"
-        pantalla.value = numeros
+        pantalla.innerHTML = numeros
     }
 }
 
@@ -352,7 +354,7 @@ function borrar() {
 
     if(pantalla) {
         // Visualizamos en la pantalla
-        pantalla.value = numeros
+        pantalla.innerHTML = numeros
     }
 }
 
@@ -362,7 +364,7 @@ function borrar_todo() {
     numeros = ""
 
     if(pantalla) {
-        pantalla.value = numeros
+        pantalla.innerHTML = numeros
     }
 
     // Reseteo todas las variables
@@ -446,16 +448,16 @@ function igual() {
         // Verifico si la operación matematica se realizo correctamente
         if(resultado_operaciones == Infinity){
             alert("No se puede divirir entre 0")
-            pantalla.value = ""
+            pantalla.innerHTML = ""
         }
 
         else if(isNaN(resultado_operaciones)) {
             alert("Error al ingresar las operaciones")
-            pantalla.value = ""
+            pantalla.innerHTML = ""
         }
 
         else {
-            pantalla.value = numeros + " = " + (resultado_operaciones)
+            pantalla.innerHTML = numeros + " = " + (resultado_operaciones)
             console.log(resultado_operaciones)
         }
 

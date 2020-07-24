@@ -54,14 +54,23 @@ table {
     border: 2px solid black;
     margin-bottom: 5px;
     height: 70px;
-    background-color: cadetblue;
+    background-color: rgb(95, 158, 160);
     color: red;
     text-align: right;
     font-size: 1.55rem;
     box-shadow: 2px 2px 5px black;
     border-radius: 15px;
-    overflow: hidden;
-    
+    white-space: nowrap;
+    overflow: auto;
+    scroll-behavior: auto;
+}
+
+#pantalla::-webkit-scrollbar {
+    width: 5px;
+}
+#pantalla::-webkit-scrollbar-thumb {
+    background-color: rgb(16, 76, 78);;
+    border-radius: 10px;
 }
 
 tr {
@@ -125,7 +134,13 @@ td:active,th:active{
         width: 50px;
         border: 1px solid black;
     }
+
+    
+    .historial {
+        margin-top: 20px;
+    }
 }
+
 
 @media 	all	and	(max-width:	576px) {
     #pantalla {
